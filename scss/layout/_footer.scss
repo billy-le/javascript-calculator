@@ -1,0 +1,19 @@
+.main-footer {
+  @include flex-container(flex, space-between, center);
+  background-color: $color-text-dark;
+  color: $white;
+
+  ul {
+    @include flex-container(flex, space-between, center);
+    padding: 0 5px;
+
+    li {
+      margin: 0 10px;
+    }
+  }
+}
+
+.social-media-icons {
+  width: 25px;
+  height: 25px;
+}

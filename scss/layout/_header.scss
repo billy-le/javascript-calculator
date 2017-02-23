@@ -1,0 +1,5 @@
+.main-header {
+  @include flex-container(flex, space-around, center);
+  background-color: $color-bg-dark;
+  color: $white;
+}

@@ -1,0 +1,11 @@
+// Mixin
+
+@mixin flex-container($flex, $justify-content: null, $align-items: null) {
+  display: $flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin media-query($min-width) {
+  width: $min-width;
+}

@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron|Teko");
+/* General CSS ************************/
+@import url("https://fonts.googleapis.com/css?family=Orbitron|Teko");
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Teko", sans-serif;
+  height: 100vh; }
+
+ul {
+  list-style: none; }
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #262626;
+  flex: 1 0 0;
+  font-size: 1.25em;
+  border: 1px solid #fff; }
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.main-display {
+  display: flex;
+  justify-content: flex-end;
+  background: #67ff67;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2em;
+  padding: 0 .5em; }
+
+.container {
+  border: 2px solid #262626;
+  width: 320px;
+  margin: 0 auto; }
+
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #262626;
+  color: #fff; }
+  .main-footer ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px; }
+    .main-footer ul li {
+      margin: 0 10px; }
+
+.social-media-icons {
+  width: 25px;
+  height: 25px; }
+
+.main-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #132c76;
+  color: #fff; }
+
+/*# sourceMappingURL=style.css.map */

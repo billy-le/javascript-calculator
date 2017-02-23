@@ -1,0 +1,15 @@
+/* General CSS ************************/
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Teko');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $teko;
+  height: 100vh;
+}
+
+ul {
+  list-style: none;
+}

@@ -1,0 +1,26 @@
+// Descriptive Color Variables
+
+$white      : #fff;
+$black      : #000;
+$royal-blue : #4169E1;
+$green      : #008000;
+
+
+// Functional Color Variables
+
+$color-prim          : $royal-blue;
+$color-sec           : $green;
+
+$color-text-light    : $white;
+$color-text-dark     : lighten($black, 15%);
+
+$color-bg-light      : darken($royal-blue, 15%);
+$color-bg-dark       : darken($royal-blue, 30%);
+$color-display       : lighten($green, 45%);
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Teko');
+
+// Font Variables
+$teko                : 'Teko', sans-serif;
+$orbitron            : 'Orbitron', sans-serif;;
