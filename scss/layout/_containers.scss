@@ -10,8 +10,12 @@
   padding: 0 .5em;
 }
 
-.container {
+#calculator {
   border: 2px solid $color-text-dark;
   width: 320px;
-  margin: 0 auto;
+  margin: 40px auto;
+}
+
+.main-display {
+  height: 100px;
 }

@@ -6,7 +6,10 @@
 
 body {
   font-family: "Teko", sans-serif;
-  height: 100vh; }
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; }
 
 ul {
   list-style: none; }
@@ -19,7 +22,8 @@ ul {
   background-color: #262626;
   flex: 1 0 0;
   font-size: 1.25em;
-  border: 1px solid #fff; }
+  border: 1px solid #fff;
+  height: 50px; }
 
 .flex-container {
   display: flex;
@@ -34,10 +38,13 @@ ul {
   font-size: 2em;
   padding: 0 .5em; }
 
-.container {
+#calculator {
   border: 2px solid #262626;
   width: 320px;
-  margin: 0 auto; }
+  margin: 40px auto; }
+
+.main-display {
+  height: 100px; }
 
 .main-footer {
   display: flex;

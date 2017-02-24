@@ -8,6 +8,8 @@
 body {
   font-family: $teko;
   height: 100vh;
+  @include flex-container(flex, space-between);
+  flex-direction: column;
 }
 
 ul {
