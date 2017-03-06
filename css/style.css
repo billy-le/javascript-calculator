@@ -14,16 +14,24 @@ body {
 ul {
   list-style: none; }
 
-.button {
+button {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-color: #262626;
+  background-color: #404040;
   flex: 1 0 0;
   font-size: 1.25em;
+  height: 50px;
   border: 1px solid #fff;
-  height: 50px; }
+  outline: none; }
+  button:active {
+    background-color: #262626; }
+
+#all-clear {
+  background-color: #990000; }
+  #all-clear:active {
+    background-color: #660000; }
 
 .flex-container {
   display: flex;
@@ -33,18 +41,29 @@ ul {
 .main-display {
   display: flex;
   justify-content: flex-end;
+  height: 100px;
+  line-height: 0;
   background: #67ff67;
   font-family: "Orbitron", sans-serif;
   font-size: 2em;
-  padding: 0 .5em; }
+  padding: 0.5em; }
 
 #calculator {
   border: 2px solid #262626;
   width: 320px;
-  margin: 40px auto; }
-
-.main-display {
-  height: 100px; }
+  margin: 40px auto;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome and Opera */ }
 
 .main-footer {
   display: flex;

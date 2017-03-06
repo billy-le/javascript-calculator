@@ -1,109 +1,112 @@
-// Cache the DOM
+var calculator = (function() {
+  //cache DOM
+  var calc = document.getElementById('calc'); //caching buttons div
+  var display = document.getElementById('display'); //caching display div
+  var newCalc = false;
+  var array = []; //array to track values and operators
 
-function cacheDom(id) {
-  return document.getElementById(id);
-}
+  //turns array into a string and evaluate it
+  function evaluate(arr) {
+    arr = arr.join('');
+    return eval(arr).toPrecision(10)/1;
+  };
 
-var calc = cacheDom('calculator')
-var display = cacheDom('display');
-var one = cacheDom('one');
-var two = cacheDom('two');
-var three = cacheDom('three');
-var four = cacheDom('four');
-var five = cacheDom('five');
-var six = cacheDom('six');
-var seven = cacheDom('seven');
-var eight = cacheDom('eight');
-var nine = cacheDom('nine');
-var zero = cacheDom('zero');
-var add = cacheDom('add');
-var subtract = cacheDom('subtract');
-var multiply = cacheDom('multiply');
-var divide = cacheDom('divide');
-var equal = cacheDom('equal');
+  //pushes value and operator to array
+  function operator(op) {
+    var val = parseFloat(display.innerHTML);
+    if(val) {
+      array.push(val);
+      array.push(op);
+      display.innerHTML = '';
+    } else if (typeof array[array.length -1] !== 'number' && array.length !== 0) { // change previous operator to current operator
+      array.pop();
+      array.push(op);
+    }
+  };
 
-
-// Event Listeners
-function add(a, b) {
-  return a + b;
-}
-
-calc.addEventListener('click', function(e) {
-  var value = display.innerHTML;
-  switch(e.target.id) {
-    case 'clear':
-      return display.innerHTML = '';
-    case 'backspace':
-      return display.innerHTML = value.slice(0, value.length - 1);
-    case 'zero':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'one':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'two':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'three':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'four':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'five':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'six':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'seven':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'eight':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
-    case 'nine':
-      value = value.concat(e.target.innerText);
-      return display.innerHTML = value;
+  // append values to display
+  function keyNum (val) {
+    if (newCalc === false) {
+        newCalc = true;
+        display.innerHTML = '';
+        return display.innerHTML += val;
+      } else {
+        return display.innerHTML += val;
+      };
   }
-})
 
-calc.addEventListener('keydown', function(e) {
-  var value = display.innerHTML;
-  switch(e.keyCode) {
-    case 8:
-      return display.innerHTML = value.slice(0, value.length - 1);
-    case 48:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 49:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 50:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 51:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 52:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 53:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 54:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 55:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 56:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 57:
-      value = value.concat(String.fromCharCode(e.keyCode));
-      return display.innerHTML = value;
-    case 67:
+  //buttons object on calculator
+  var buttons = {
+    zero: function() {keyNum(0)},
+    one: function() {keyNum(1)},
+    two: function() {keyNum(2)},
+    three: function() {keyNum(3)},
+    four: function() {keyNum(4)},
+    five: function() {keyNum(5)},
+    six: function() {keyNum(6)},
+    seven: function() {keyNum(7)},
+    eight: function() {keyNum(8)},
+    nine: function() {keyNum(9)},
+    decimal: function (){
+      if (display.innerHTML.indexOf('.') === -1 || newCalc === false) {
+        keyNum('.');
+      }
+    },
+    add: function(){
+      operator('+');
+    },
+    sub: function(){
+      operator('-');
+    },
+    mult: function(){
+      operator('*');
+    },
+    divide: function(){
+      operator('/');
+    },
+    equal: function(){
+      if(array.length > 0) {
+        // if there is an operator in last index, push new number to array and evalute
+        if (parseFloat(display.innerHTML) && typeof array[array.length -1] !== 'number') {
+          array.push(parseFloat(display.innerHTML));
+          display.innerHTML = evaluate(array);
+          array = [];
+          newCalc = false;
+        } else if (typeof array[array.length -1] !== 'number') {
+          array.pop();
+          display.innerHTML = evaluate(array);
+          array = [];
+          newCalc = false;
+        } else {
+          display.innerHTML = evaluate(array);
+          array = [];
+          newCalc = false;
+        }
+      }
+    },
+    backspace: function() {
+      return display.innerHTML = display.innerHTML.slice(0, display.innerHTML.length - 1);
+    },
+    clear: function(){
       return display.innerHTML = '';
+    },
+    "all-clear": function(){
+      array = [];
+      newCalc = false;
+      return display.innerHTML = '';
+    },
+    "plus-minus": function() {
+      if(display.innerHTML.indexOf("-") !== 0) {
+        return (display.innerHTML = "-" + display.innerHTML);
+      } else {
+        return display.innerHTML = display.innerHTML.slice(1);
+      }
+    }
   }
-});
+
+  //event handler
+  calc.addEventListener('click', function(e) {
+    e.preventDefault();
+    buttons[e.target.id]();
+  });
+})();

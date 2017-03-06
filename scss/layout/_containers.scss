@@ -4,18 +4,22 @@
 
 .main-display {
   @include flex-container(flex, flex-end);
+  height: 100px;
+  line-height: 0;
   background: $color-display;
   font-family: $orbitron;
   font-size: 2em;
-  padding: 0 .5em;
+  padding: 0.5em;
 }
 
 #calculator {
   border: 2px solid $color-text-dark;
   width: 320px;
   margin: 40px auto;
-}
-
-.main-display {
-  height: 100px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }

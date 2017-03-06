@@ -1,9 +1,22 @@
-.button {
+button {
   @include flex-container(flex, center, center);
   color: $white;
-  background-color: $color-text-dark;
+  background-color: $color-bg-dark;
   flex: 1 0 0;
   font-size: 1.25em;
-  border: 1px solid $white;
   height: 50px;
+  border: 1px solid $white;
+  outline: none;
+
+  &:active {
+    background-color: $color-text-dark;
+  }
+}
+
+#all-clear {
+  background-color: darken($red, 20%);
+
+  &:active {
+    background-color: darken($red, 30%);
+  }
 }

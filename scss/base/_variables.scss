@@ -4,18 +4,19 @@ $white      : #fff;
 $black      : #000;
 $royal-blue : #4169E1;
 $green      : #008000;
+$red        : #ff0000;
 
 
 // Functional Color Variables
 
-$color-prim          : $royal-blue;
+$color-prim          : lighten($black, 15%);
 $color-sec           : $green;
 
-$color-text-light    : $white;
+$color-text-light    : darken($white, 15%);
 $color-text-dark     : lighten($black, 15%);
 
-$color-bg-light      : darken($royal-blue, 15%);
-$color-bg-dark       : darken($royal-blue, 30%);
+$color-header-dark   : darken($royal-blue, 30%);
+$color-bg-dark       : lighten($color-text-dark, 10%);
 $color-display       : lighten($green, 45%);
 
 // Google Fonts
